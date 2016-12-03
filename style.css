@@ -1,0 +1,22 @@
+.form{
+    border-style: solid;
+    width:25%;
+}
+
+.style {
+  display: table;
+} 
+
+.row {
+    display: table-row;
+}
+
+.cell-left {
+    display: table-cell;
+}
+
+.cell-right { display: table-cell; }
+
+#tip{
+    border-style: solid;
+}
