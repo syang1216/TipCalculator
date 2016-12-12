@@ -12,7 +12,7 @@
 						<label for="amount"> Bill subtotal: </label>
 					</div>
 					<div class="cell-right">
-						$<input type="text" name="amount" value = <?php if(isset($_POST['amount'])) echo $_POST['amount']; ?> ><br></br>
+						$<input type="text" name="amount" value = <?php if(isset($_POST['amount'])) {echo $_POST['amount'];} else{ echo "100";} ?> ><br></br>
 					</div>
 				</div>
 
@@ -88,7 +88,7 @@
 							$tip = (double)$amount * (double)$percent*0.01;
 							echo "tip: " . $tip . "<br>";
 							echo "total: " . ($tip + (double)$amount) . "<br>";
-							
+
 							if(!ctype_digit($split) || (int)$split < 1){
 								echo "split between invalid number";
 							}else{
