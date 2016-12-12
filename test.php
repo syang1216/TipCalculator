@@ -77,20 +77,24 @@
 						if(!strcmp($percent, "custom")){
 							$percent = $_POST['custom_tip'];
 						}
-						$tip = (double)$amount * (double)$percent*0.01;
+
 
 						echo "<div class='row' id='tip'>";
 						echo "<div class ='cell-left'> </div>";
 						echo "<div class ='cell-right'>";
-						echo "tip: " . $tip . "<br>";
-						echo "total: " . ($tip + (double)$amount) . "<br>";
-
-
-						if(!ctype_digit($split) || (int)$split < 1){
-							echo "split between invalid number";
+						if($amount <= 0 || $percent <=0){
+							echo "invalid amount or percent <br>";
 						}else{
-							echo "tip each: ". $tip/$split . "</br>";
-							echo "total each: " . ($tip + (double)$amount)/$split . "</br>";
+							$tip = (double)$amount * (double)$percent*0.01;
+							echo "tip: " . $tip . "<br>";
+							echo "total: " . ($tip + (double)$amount) . "<br>";
+							
+							if(!ctype_digit($split) || (int)$split < 1){
+								echo "split between invalid number";
+							}else{
+								echo "tip each: ". $tip/$split . "</br>";
+								echo "total each: " . ($tip + (double)$amount)/$split . "</br>";
+							}
 						}
 
 						echo "</div>";
